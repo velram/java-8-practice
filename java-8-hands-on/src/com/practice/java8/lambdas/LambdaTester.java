@@ -11,6 +11,29 @@ package com.practice.java8.lambdas;
 
 public class LambdaTester {
     public static void main(String[] args) {
-        System.out.println("Hello world!!! ");
+
+        LambdaDriver lambdaDriver = new LambdaDriver();
+        lambdaDriver.invokeFunctionalInterface(
+                () -> System.out.println("Testing Lambda")
+        );
+        /*
+          Here we not only pass the object "LambdaDrive".
+          But, also the method behavior for the "doSomething()".
+          "WHAT"  the method should do is defined in the invoking class
+           and the same (i.e., behavious) is passed as a parameter.
+           This is what called as Lambda expression
+         */
     }
+}
+
+class LambdaDriver{
+
+    public void invokeFunctionalInterface(FunctionalInterface functionalInterface){
+        //functionalInterface.doSomething();
+    }
+}
+
+interface FunctionalInterface{
+
+    void doSomething();
 }
