@@ -12,28 +12,46 @@ package com.practice.java8.lambdas;
 public class LambdaTester {
     public static void main(String[] args) {
 
-        LambdaDriver lambdaDriver = new LambdaDriver();
-        lambdaDriver.invokeFunctionalInterface(
-                () -> System.out.println("Testing Lambda")
+        CalculatorDriver calculatorDriverObj = new CalculatorDriver();
+        calculatorDriverObj.invokePerformMathOp(
+                (a, b) ->  (a+b)
+        );
+        calculatorDriverObj.invokePerformMathOp(
+                (a, b) ->  (a-b)
+        );
+        calculatorDriverObj.invokePerformMathOp(
+                (a, b) ->  (a*b)
+        );
+        calculatorDriverObj.invokePerformMathOp(
+                (a, b) ->  (a/b)
         );
         /*
-          Here we not only pass the object "LambdaDrive".
-          But, also the method behavior for the "doSomething()".
+          Here we not only pass the object "calculatorDriverObj".
+          But, also the method behavior for the "invokePerformMathOp()".
           "WHAT"  the method should do is defined in the invoking class
-           and the same (i.e., behavious) is passed as a parameter.
+           and the same (i.e., behaviour) is passed as a parameter.
            This is what called as Lambda expression
          */
     }
 }
 
-class LambdaDriver{
+class CalculatorDriver{
 
-    public void invokeFunctionalInterface(FunctionalInterface functionalInterface){
-        //functionalInterface.doSomething();
+    public void invokePerformMathOp(Calculator calculatorObj){
+        System.out.println(" Result is : " + calculatorObj.performMathematicalOperation(1,2));
     }
 }
 
-interface FunctionalInterface{
+/**
+ * This Calculator is the functional interface
+ * A functional interface
+ *  * Shall have only one abstract method
+ *
+ *  Exceptions :
+ *  1. Default method is allowed
+ *
+ */
+interface Calculator{
 
-    void doSomething();
+    int performMathematicalOperation(int value1, int value2);
 }
