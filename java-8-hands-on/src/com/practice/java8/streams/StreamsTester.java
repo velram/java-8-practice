@@ -9,7 +9,7 @@ public class StreamsTester {
 
        Employee employee1 = new Employee("Amudhan");
        Employee employee2 = new Employee("Aaaravamudhan");
-       Employee employee3 = new Employee("Aranganathan");
+       Employee employee3 = new Employee("aranganathan");
        Employee employee4 = new Employee("Basha");
 
        List<Employee> employees = new ArrayList<Employee>();
@@ -24,7 +24,7 @@ public class StreamsTester {
            * Store those names alone in a list
          */
 
-       List<Employee> filteredEmployees = employees.stream().filter(employee -> employee.name.startsWith("A") || employee.name.startsWith("A"))
+       List<Employee> filteredEmployees = employees.stream().filter(employee -> employee.name.startsWith("A") || employee.name.startsWith("a"))
                 .collect(Collectors.toList());
         System.out.println("Printing all employee list ");
         employees.forEach(employee -> System.out.println(employee.name));
